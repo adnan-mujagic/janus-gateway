@@ -3968,7 +3968,7 @@ static void *janus_sip_handler(void *data) {
 				goto error;
 			}
 			janus_mutex_unlock(&session->mutex);
-			JANUS_VALIDATE_JSON_OBJECT(root, progress ? progress_parameters : accept_parameters,
+			JANUS_VALIDATE_JSON_OBJECT(root, (struct janus_json_parameter*)(progress ? progress_parameters : accept_parameters),
 				error_code, error_cause, TRUE,
 				JANUS_SIP_ERROR_MISSING_ELEMENT, JANUS_SIP_ERROR_INVALID_ELEMENT);
 			if(error_code != 0)
