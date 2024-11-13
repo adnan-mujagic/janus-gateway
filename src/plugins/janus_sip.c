@@ -36,16 +36,18 @@
  * as events with the same transaction.
  *
  * The supported requests are \c register , \c unregister , \c call ,
- * \c accept, \c decline , \c info , \c message , \c dtmf_info ,
+ * \progress , \c accept , \c decline , \c info , \c message , \c dtmf_info ,
  * \c subscribe , \c unsubscribe , \c transfer , \c recording ,
  * \c hold , \c unhold , \c update and \c hangup . \c register can be used,
  * as the name suggests, to register a username at a SIP registrar to
  * call and be called, while \c unregister unregisters it; \c call is used
- * to send an INVITE to a different SIP URI through the plugin, while
- * \c accept and \c decline are used to accept or reject the call in
- * case one is invited instead of inviting; \c transfer takes care of
- * attended and blind transfers (see \ref siptr for more details);
- * \c hold and \c unhold can be used respectively to put a
+ * to send an INVITE to a different SIP URI through the plugin; in case one
+ * is invited instead of inviting, \c progress, \c accept and \c decline
+ * requests may be used. \c progress request is optional, and it is used to
+ * send 183 Session Progress response back to the caller, while
+ * \c accept and \c decline are used to accept or reject the call respectively;
+ * \c transfer takes care of attended and blind transfers (see \ref siptr for
+ * more details); \c hold and \c unhold can be used respectively to put a
  * call on-hold and to resume it; \c info allows you to send a generic
  * SIP INFO request, while \c dtmf_info is focused on using INFO for DTMF
  * instead; \c message is the method you use to send a SIP message
